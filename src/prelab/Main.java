@@ -63,6 +63,7 @@ public class Main {
     // SHOW VACCINATION STATUS PER PRIORITY GROUP
     static void showVaccinationStatusPriorityGroup(){
         System.out.println("~ Vaccination Status Per Priority Group ~");
+        displayData();
     }
     //
 
