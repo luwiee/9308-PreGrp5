@@ -1,3 +1,4 @@
+//Just tried if git commit and git push works
 package prelab;
 
 import static prelab.HelperFunctions.*; // Import the helper functions class
@@ -9,6 +10,7 @@ public class Main {
         Introduction();
         do {
             mainMenu();
+
         } while(AskIfDoAgain());
     }
 
@@ -51,10 +53,12 @@ public class Main {
         System.out.println("~ Vaccination Status ~");
     }
 
+
     // SHOW VACCINATION STATUS PER PRIORITY GROUP
     static void showVaccinationStatusPriorityGroup(){
         System.out.println("~ Vaccination Status Per Priority Group ~");
     }
+    //
 
     // SHOW VACCINATION STATUS DOSE
     static void showVaccinationStatusDose(){
