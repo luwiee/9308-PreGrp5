@@ -54,7 +54,7 @@ public class Main {
     }
     //
     //
-    //
+
 
     // SHOW VACCINATION STATUS PER PRIORITY GROUP
     static void showVaccinationStatusPriorityGroup(){
