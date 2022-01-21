@@ -53,7 +53,6 @@ public class Main {
         System.out.println("~ Vaccination Status ~");
     }
     //
-    //
 
 
     // SHOW VACCINATION STATUS PER PRIORITY GROUP
