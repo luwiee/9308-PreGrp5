@@ -7,11 +7,21 @@ public class Main {
     public static void main(String[] args) {
         // Main Function Should only call the functions
         Introduction();
-        mainMenu();
+        do {
+            mainMenu();
+        } while(AskIfDoAgain());
     }
 
     static void Introduction() {
         System.out.println("“Baguio City Covid-19 Vaccination Status”.");
+    }
+
+    static boolean AskIfDoAgain() {
+        System.out.println("Do you want to continue the program? ");
+        System.out.println("1: Yes");
+        System.out.println("2: No");
+
+        return (getUserMenuSingleDigitInput() == 1);
     }
 
     // MAIN-MENU
@@ -23,6 +33,7 @@ public class Main {
         System.out.println("3: Show Vaccination Status per Doses");
         System.out.println("4: Update Vaccination Status");
         System.out.println("5: Sort and Display Options");
+        System.out.println("6: Quit");
 
         // Get the input from user and run the functions that pertain to that input
         switch (getUserMenuSingleDigitInput()) {
@@ -31,6 +42,7 @@ public class Main {
             case 3 -> showVaccinationStatusDose();
             case 4 -> updateVaccinationStatus();
             case 5 -> sortAndDisplayOptions();
+            case 6 -> System.exit(0);
         }
     }
 
@@ -50,11 +62,13 @@ public class Main {
         System.out.println("1: One Dose");
         System.out.println("2: Fully Vaccinated");
         System.out.println("3: With Booster");
+        System.out.println("4: Main Menu");
 
         switch (getUserMenuSingleDigitInput()) {
             case 1: break; //TODO One Dose
             case 2: break; //TODO Fully Vaccinated
             case 3: break; //TODO With Booster
+            case 4: mainMenu(); break;
         }
     }
 
@@ -72,12 +86,14 @@ public class Main {
         System.out.println("2: Priority group that has the least vaccines administered");
         System.out.println("3: Total vaccines for the day");
         System.out.println("4: Total vaccines administered");
+        System.out.println("5: Main Menu");
 
         switch (getUserMenuSingleDigitInput()) {
             case 1 -> sortAndDisplayOptions_MostVaccines();
             case 2 -> sortAndDisplayOptions_LeastVaccines();
             case 3 -> sortAndDisplayOptions_TotalVaccinesDay();
             case 4 -> sortAndDisplayOptions_TotalVaccines();
+            case 5 -> mainMenu();
         }
     }
 
