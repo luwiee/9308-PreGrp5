@@ -4,7 +4,7 @@ package prelab;
 import static prelab.HelperFunctions.*; // Import the helper functions class
 
 public class Main {
-
+    static String[] msg = { "With First Dose", "Fully Vaccinated", "With Booster", "Total Administered" };
     public static void main(String[] args) {
         // Main Function Should only call the functions
         Introduction();
@@ -51,7 +51,13 @@ public class Main {
     // SHOW VACCINATION STATUS
     static void showVaccinationStatus(){
         System.out.println("~ Vaccination Status ~");
+
+        int[] items = { 287574, 267223, 60122, 654989 };
+        for (int i = 0; i < msg.length; i++) {
+            System.err.printf("%22s: %10d%n", msg[i], items[i]);
+        }
     }
+
 
 
     // SHOW VACCINATION STATUS PER PRIORITY GROUP
