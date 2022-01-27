@@ -29,17 +29,10 @@ import java.util.Scanner;
         }
         static void displayData(){
             String format = "|%1$-10s|%2$-10s|%3$-20s|%4$-20s|%5$-20s\n";
-            System.out.format(format, "Total num of Doses  ", "  Individuals with atleast One dose  ", "Fuilly Vaccinated ", "  Individuals with booster dose  ", "  Total");
-            System.out.format(format, "A1                  ", "  25,826                             ", "24,698            ", "  11,155                         ", "  60,278");
-
-            System.out.format(format, "A2                  ", "  32,812                             ", "31,801            ", "  14,839                         ", "  73,887");
-            //cool table
-            System.out.format(format, "A3                  ", "  55,572                             ", "54,260            ", "  14,839                         ", "  73,887");
-            System.out.format(format, "A4                  ", "  122,152                            ", "113,085           ", "  12,935                         ", "  247,760");
-            System.out.format(format, "A5                  ", "  22,536                             ", "20,558            ", "  1,520                          ", "  43, 896");
-            System.out.format(format, "ROP                 ", "  28,676                             ", "22,821            ", "  926                            ", "  51,342");
-            System.out.format(format, "P.A3                ", "  4,803                              ", "3,995             ", "  11,155                         ", "  8,798");
-            System.out.format(format, "ROPP                ", "  28,256                             ", "25,727            ", "  11,155                         ", "  53, 983");
+            String formatD = "|%1$-10s|%2$-10d|%3$-20d|%4$-20d|%5$-20d\n";
+            String dc = "\t\t\t"; // Distance
+            System.out.format(format, "Total num of Doses" + dc, "Individuals with atleast One dose", "Fuilly Vaccinated", "Individuals with booster dose", "Total");
+            System.out.format(formatD, "A1"+dc, VSE.GetVSOfPGAndDT(PGC.A1, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.A1, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.A1, DTC.BOOSTER), VSE.GetVSOfPG(PGC.A1));
         }
 
         //Test

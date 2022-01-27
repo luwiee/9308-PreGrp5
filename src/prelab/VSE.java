@@ -20,14 +20,14 @@ public class VSE {
         categoryStatusList.add(this);
     }
 
-    public PGC GetPriority_group(){
+    public PGC getPriority_group(){
         return priority_group;
     }
-    public DTC GetDosage_type(){
+    public DTC getDosage_type(){
         return dosage_type;
     }
 
-    public double GetVaccine_count(){
+    public double getVaccine_count(){
         return vaccine_count;
     }
 
@@ -35,35 +35,53 @@ public class VSE {
         int total_v_count = 0;
 
         for (VSE categoryEntry : categoryStatusList){
-            total_v_count += categoryEntry.vaccine_count;
+            total_v_count += categoryEntry.getVaccine_count();
         }
 
         return total_v_count;
     }
 
+    // Return total Vaccination status of the priority group
     public static int GetVSOfPG(PGC priority_group_filter){
         int total_v_count = 0;
 
         // Iterate through the category Status list and check if it is of the priority group if so
         // Add it to the total Vaccine count
         for (VSE categoryEntry : categoryStatusList){
-            if (categoryEntry.priority_group == priority_group_filter){
-                total_v_count += categoryEntry.vaccine_count;
+            if (categoryEntry.getPriority_group().equals(priority_group_filter)){
+                total_v_count += categoryEntry.getVaccine_count();
             }
         }
 
         return total_v_count;
     }
 
-    // return vaccine_count of dosage count
+    // Return vaccination count of VS of PG and Dt
+    public static int GetVSOfPGAndDT(PGC priority_group_filter, DTC dosage_filter){
+        int total_v_count = 0;
+
+        // Iterate through the category Status list and check if it is of the priority group if so
+        // Add it to the total Vaccine count
+        for (VSE categoryEntry : categoryStatusList){
+            if (categoryEntry.getPriority_group().equals(priority_group_filter)){
+                if (categoryEntry.getDosage_type().equals(dosage_filter)){
+                    total_v_count += categoryEntry.getVaccine_count();
+                }
+            }
+        }
+
+        return total_v_count;
+    }
+
+    // return total vaccine_count of dosage count
     public static int GetVSOfDT(DTC dosage_filter) {
         int total_v_count = 0;
 
         // Iterate through the category Status list and check if it is of the dosage type if so
         // Add it to the total Vaccine count
         for (VSE categoryEntry : categoryStatusList){
-            if (categoryEntry.dosage_type == dosage_filter){
-                total_v_count += categoryEntry.vaccine_count;
+            if (categoryEntry.getDosage_type().equals(dosage_filter)){
+                total_v_count += categoryEntry.getVaccine_count();
             }
         }
 

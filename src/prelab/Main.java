@@ -56,10 +56,10 @@ public class Main {
     // SHOW VACCINATION STATUS
     static void showVaccinationStatus(){
         System.out.println("\t\t ~ Vaccination Status ~");
-        String[] msg = { "With First Dose", "Fully Vaccinated", "With Booster", "Total Administered" };
+        String[] label = { "With First Dose", "Fully Vaccinated", "With Booster", "Total Administered" };
         int[] items = { VSE.GetVSOfDT(DTC.ONE_DOSE), VSE.GetVSOfDT(DTC.FULLY_VACCINATED), VSE.GetVSOfDT(DTC.BOOSTER), VSE.GetTotalVaccinationStatus() };
-        for (int i = 0; i < msg.length; i++) {
-            System.out.printf("%22s: %10d%n", msg[i], items[i]);
+        for (int i = 0; i < label.length; i++) {
+            System.out.printf("%22s: %10d%n", label[i], items[i]);
         }
     }
 
@@ -68,6 +68,7 @@ public class Main {
     // SHOW VACCINATION STATUS PER PRIORITY GROUP
     static void showVaccinationStatusPriorityGroup(){
         System.out.println("~ Vaccination Status Per Priority Group ~");
+
         displayData();
     }
     //
