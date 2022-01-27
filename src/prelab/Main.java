@@ -81,18 +81,63 @@ public class Main {
         System.out.println("4: Main Menu");
 
         switch (getUserMenuSingleDigitInput()) {
-            case 1: break; //TODO One Dose
-            case 2: break; //TODO Fully Vaccinated
-            case 3: break; //TODO With Booster
+            case 1:
+                System.out.printf("%22s: %d%n", "Individuals with at least One Dose", VSE.GetVSOfDT(DTC.ONE_DOSE) );
+                break;
+            case 2:
+                System.out.printf("%22s: %d%n", "Fully Vaccinated", VSE.GetVSOfDT(DTC.FULLY_VACCINATED) );
+                break;
+            case 3:
+                System.out.printf("%22s: %d%n", "Individuals with Booster Dose", VSE.GetVSOfDT(DTC.BOOSTER) );
+                break;
             case 4: mainMenu(); break;
         }
     }
 
     // UPDATE VACCINATION STATUS
     static void updateVaccinationStatus(){
+        PGC priority_group_input;
+        DTC dosage_classification_input = null;
+        int vaccine_count_input;
         System.out.println("~ Update Vaccination Status~");
-        //TODO This method shall ask the user to enter what category, classification of dose as well as the current
-        //      number of vaccines administered.
+        System.out.println("Select Priority Group:");
+        System.out.println("1: A1");
+        System.out.println("2: A2");
+        System.out.println("3: A3");
+        System.out.println("4: A4");
+        System.out.println("5: A5");
+        System.out.println("6: ROP");
+        System.out.println("7: P.A3");
+        System.out.println("8: ROPP");
+
+        switch (getUserMenuSingleDigitInput()) {
+            case 1 -> priority_group_input = PGC.A1;
+            case 2 -> priority_group_input = PGC.A2;
+            case 3 -> priority_group_input = PGC.A3;
+            case 4 -> priority_group_input = PGC.A4;
+            case 5 -> priority_group_input = PGC.A5;
+            case 6 -> priority_group_input = PGC.ROP;
+            case 7 -> priority_group_input = PGC.PA3;
+            case 8 -> priority_group_input = PGC.ROPP;
+            default -> throw new IllegalStateException("Unexpected value: " + getUserMenuSingleDigitInput());
+        }
+
+        System.out.println("Select Dosage Type:");
+        System.out.println("1: One Dose");
+        System.out.println("2: Fully Vaccinated");
+        System.out.println("3: Booster");
+
+        switch (getUserMenuSingleDigitInput()){
+            case 1 -> dosage_classification_input = DTC.ONE_DOSE;
+            case 2 -> dosage_classification_input = DTC.FULLY_VACCINATED;
+            case 3 -> dosage_classification_input = DTC.BOOSTER;
+        }
+
+        System.out.print("Vaccination Count:");
+        vaccine_count_input = getIntInput();
+        
+        new VSE(priority_group_input, dosage_classification_input, vaccine_count_input);
+
     }
 
     // SORT AND DISPLAY OPTIONS
