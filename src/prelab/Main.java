@@ -4,8 +4,13 @@ package prelab;
 import static prelab.HelperFunctions.*; // Import the helper functions class
 
 public class Main {
-    static String[] msg = { "With First Dose", "Fully Vaccinated", "With Booster", "Total Administered" };
+
     public static void main(String[] args) {
+        // SAMPLE DATA
+        VSE e0 = new VSE(PGC.A1, DTC.ONE_DOSE, 25826);
+        VSE e1 = new VSE(PGC.A1, DTC.FULLY_VACCINATED, 24698);
+        VSE e2 = new VSE(PGC.A2, DTC.FULLY_VACCINATED, 31801);
+
         // Main Function Should only call the functions
         Introduction();
         do {
@@ -50,11 +55,11 @@ public class Main {
 
     // SHOW VACCINATION STATUS
     static void showVaccinationStatus(){
-        System.out.println("~ Vaccination Status ~");
-
-        int[] items = { 287574, 267223, 60122, 654989 };
+        System.out.println("\t\t ~ Vaccination Status ~");
+        String[] msg = { "With First Dose", "Fully Vaccinated", "With Booster", "Total Administered" };
+        int[] items = { VSE.GetVSOfDT(DTC.ONE_DOSE), VSE.GetVSOfDT(DTC.FULLY_VACCINATED), VSE.GetVSOfDT(DTC.BOOSTER), VSE.GetTotalVaccinationStatus() };
         for (int i = 0; i < msg.length; i++) {
-            System.err.printf("%22s: %10d%n", msg[i], items[i]);
+            System.out.printf("%22s: %10d%n", msg[i], items[i]);
         }
     }
 

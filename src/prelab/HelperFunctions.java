@@ -8,7 +8,9 @@ import java.util.Scanner;
         static int getUserMenuSingleDigitInput(){
             Scanner my_scanner = new Scanner(System.in);
             System.out.print("Select menu number: ");
-            return Integer.parseInt(String.valueOf(my_scanner.next().charAt(0)));
+            Integer input = Integer.parseInt(String.valueOf(my_scanner.next().charAt(0)));
+            System.out.println();
+            return input;
         }
         // Bubble sort for the sorting parts
         static void bubbleSort(int[] arr) {
