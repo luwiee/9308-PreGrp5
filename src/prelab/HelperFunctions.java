@@ -12,6 +12,13 @@ import java.util.Scanner;
             System.out.println();
             return input;
         }
+
+        static int getIntInput(){
+            Scanner my_scanner = new Scanner(System.in);
+            Integer input = Integer.parseInt(my_scanner.next());
+
+            return input;
+        }
         // Bubble sort for the sorting parts
         static void bubbleSort(int[] arr) {
             int n = arr.length;
