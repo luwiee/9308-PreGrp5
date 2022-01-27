@@ -143,42 +143,13 @@ public class Main {
     // SORT AND DISPLAY OPTIONS
     static void sortAndDisplayOptions(){
         System.out.println("~ Sort and Display Options ~");
+
         System.out.println("1: Priority group that has the most vaccines administered");
         System.out.println("2: Priority group that has the least vaccines administered");
         System.out.println("3: Total vaccines for the day");
         System.out.println("4: Total vaccines administered");
         System.out.println("5: Main Menu");
 
-        switch (getUserMenuSingleDigitInput()) {
-            case 1 -> sortAndDisplayOptions_MostVaccines();
-            case 2 -> sortAndDisplayOptions_LeastVaccines();
-            case 3 -> sortAndDisplayOptions_TotalVaccinesDay();
-            case 4 -> sortAndDisplayOptions_TotalVaccines();
-            case 5 -> mainMenu();
-        }
     }
 
-    static void sortAndDisplayOptions_MostVaccines(){
-        //TODO GET DATA
-        //TODO SORT DATA
-        //TODO SHOW DATA
-    }
-
-    static void sortAndDisplayOptions_LeastVaccines(){
-        //TODO GET DATA
-        //TODO SORT DATA
-        //TODO SHOW DATA
-    }
-
-    static void sortAndDisplayOptions_TotalVaccinesDay(){
-        //TODO GET DATA
-        //TODO SORT DATA
-        //TODO SHOW DATA
-    }
-
-    static void sortAndDisplayOptions_TotalVaccines(){
-        //TODO GET DATA
-        //TODO SORT DATA
-        //TODO SHOW DATA
-    }
 }
