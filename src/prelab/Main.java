@@ -1,4 +1,3 @@
-//Just tried if git commit and git push works
 package prelab;
 
 import static prelab.HelperFunctions.*; // Import the helper functions class
@@ -67,7 +66,7 @@ public class Main {
 
     // SHOW VACCINATION STATUS PER PRIORITY GROUP
     static void showVaccinationStatusPriorityGroup(){
-        System.out.println("~ Vaccination Status Per Priority Group ~");
+        System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t~ Vaccination Status Per Priority Group ~");
 
         displayData();
     }

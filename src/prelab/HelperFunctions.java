@@ -28,20 +28,20 @@ import java.util.Scanner;
             }
         }
         static void displayData(){
-            String format = "|%1$-10s|%2$-10s|%3$-20s|%4$-20s|%5$-20s\n";
-            String formatD = "|%1$-10s|%2$-10d|%3$-20d|%4$-20d|%5$-20d\n";
-            String dc = "\t\t\t"; // Distance
-            System.out.format(format, "Total num of Doses" + dc, "Individuals with atleast One dose", "Fuilly Vaccinated", "Individuals with booster dose", "Total");
+            String format = "|%20s|%35s|%20s|%35s|%20s|\n";
+            String formatD = "|%20s|%35d|%20d|%35d|%20d|\n";
+            String dc = "\t\t"; // Distance
+            System.out.format(format, "Total num of Doses", "Individuals with atleast One dose", "Fuilly Vaccinated", "Individuals with booster dose", "Total");
 
             // TODO need help formatting this properly
-            System.out.format(formatD, "A1"+dc, VSE.GetVSOfPGAndDT(PGC.A1, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.A1, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.A1, DTC.BOOSTER), VSE.GetVSOfPG(PGC.A1));
-            System.out.format(formatD, "A2"+dc, VSE.GetVSOfPGAndDT(PGC.A2, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.A2, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.A2, DTC.BOOSTER), VSE.GetVSOfPG(PGC.A2));
-            System.out.format(formatD, "A3"+dc, VSE.GetVSOfPGAndDT(PGC.A3, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.A3, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.A3, DTC.BOOSTER), VSE.GetVSOfPG(PGC.A3));
-            System.out.format(formatD, "A4"+dc, VSE.GetVSOfPGAndDT(PGC.A4, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.A4, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.A4, DTC.BOOSTER), VSE.GetVSOfPG(PGC.A4));
-            System.out.format(formatD, "A5"+dc, VSE.GetVSOfPGAndDT(PGC.A5, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.A5, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.A5, DTC.BOOSTER), VSE.GetVSOfPG(PGC.A5));
-            System.out.format(formatD, "ROP"+dc, VSE.GetVSOfPGAndDT(PGC.ROP, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.ROP, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.ROP, DTC.BOOSTER), VSE.GetVSOfPG(PGC.ROP));
-            System.out.format(formatD, "P.A3"+dc, VSE.GetVSOfPGAndDT(PGC.PA3, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.PA3, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.PA3, DTC.BOOSTER), VSE.GetVSOfPG(PGC.PA3));
-            System.out.format(formatD, "ROP"+dc, VSE.GetVSOfPGAndDT(PGC.ROPP, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.ROPP, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.ROPP, DTC.BOOSTER), VSE.GetVSOfPG(PGC.ROPP));
+            System.out.format(formatD, "A1", VSE.GetVSOfPGAndDT(PGC.A1, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.A1, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.A1, DTC.BOOSTER), VSE.GetVSOfPG(PGC.A1));
+            System.out.format(formatD, "A2", VSE.GetVSOfPGAndDT(PGC.A2, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.A2, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.A2, DTC.BOOSTER), VSE.GetVSOfPG(PGC.A2));
+            System.out.format(formatD, "A3", VSE.GetVSOfPGAndDT(PGC.A3, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.A3, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.A3, DTC.BOOSTER), VSE.GetVSOfPG(PGC.A3));
+            System.out.format(formatD, "A4", VSE.GetVSOfPGAndDT(PGC.A4, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.A4, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.A4, DTC.BOOSTER), VSE.GetVSOfPG(PGC.A4));
+            System.out.format(formatD, "A5", VSE.GetVSOfPGAndDT(PGC.A5, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.A5, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.A5, DTC.BOOSTER), VSE.GetVSOfPG(PGC.A5));
+            System.out.format(formatD, "ROP", VSE.GetVSOfPGAndDT(PGC.ROP, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.ROP, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.ROP, DTC.BOOSTER), VSE.GetVSOfPG(PGC.ROP));
+            System.out.format(formatD, "P.A3", VSE.GetVSOfPGAndDT(PGC.PA3, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.PA3, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.PA3, DTC.BOOSTER), VSE.GetVSOfPG(PGC.PA3));
+            System.out.format(formatD, "ROP", VSE.GetVSOfPGAndDT(PGC.ROPP, DTC.ONE_DOSE), VSE.GetVSOfPGAndDT(PGC.ROPP, DTC.FULLY_VACCINATED), VSE.GetVSOfPGAndDT(PGC.ROPP, DTC.BOOSTER), VSE.GetVSOfPG(PGC.ROPP));
         }
 
         //Test
