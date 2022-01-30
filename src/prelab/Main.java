@@ -73,10 +73,10 @@ public class Main {
         System.out.println("4: Main Menu");
 
         switch (getUserMenuSingleDigitInput()) {
-            case 1: System.out.println(VSE.GetVSOfDT(DTC.ONE_DOSE) + " Vaccines administered");
-            case 2: System.out.println(VSE.GetVSOfDT(DTC.FULLY_VACCINATED) + " Vaccines administered");
-            case 3: System.out.println(VSE.GetVSOfDT(DTC.BOOSTER) + " Vaccines administered");
-            case 4: mainMenu(); break;
+            case 1 -> System.out.println(VSE.GetVSOfDT(DTC.ONE_DOSE) + " Vaccines administered");
+            case 2 -> System.out.println(VSE.GetVSOfDT(DTC.FULLY_VACCINATED) + " Vaccines administered");
+            case 3 -> System.out.println(VSE.GetVSOfDT(DTC.BOOSTER) + " Vaccines administered");
+            case 4 -> mainMenu();
         }
     }
 
