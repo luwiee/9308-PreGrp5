@@ -9,14 +9,22 @@ public class VSE {
     private final PGC priority_group;
     private final DTC dosage_type;
     private final int vaccine_count;
+    private final boolean today;
+    private static final ArrayList<VSE> categoryStatusList = new ArrayList<>();
 
-    private static ArrayList<VSE> categoryStatusList = new ArrayList<>();
+    public VSE(PGC p_group, DTC d_type, int v_count, boolean today_v){
+        priority_group = p_group;
+        dosage_type = d_type;
+        vaccine_count = v_count;
+        today = today_v;
+        categoryStatusList.add(this);
+    }
 
     public VSE(PGC p_group, DTC d_type, int v_count){
         priority_group = p_group;
         dosage_type = d_type;
         vaccine_count = v_count;
-
+        today = false;
         categoryStatusList.add(this);
     }
 
@@ -26,7 +34,7 @@ public class VSE {
     public DTC getDosage_type(){
         return dosage_type;
     }
-
+    public boolean getIsToday() { return today;}
     public double getVaccine_count(){
         return vaccine_count;
     }
@@ -82,6 +90,20 @@ public class VSE {
         for (VSE categoryEntry : categoryStatusList){
             if (categoryEntry.getDosage_type().equals(dosage_filter)){
                 total_v_count += categoryEntry.getVaccine_count();
+            }
+        }
+
+        return total_v_count;
+    }
+
+    public static int GetTotalDay(){
+        int total_v_count = 0;
+
+        // Iterate through the category Status list and check if it is of the dosage type if so
+        // Add it to the total Vaccine count
+        for (VSE categoryEntry : categoryStatusList){
+            if (categoryEntry.getIsToday()){
+                total_v_count += categoryEntry.vaccine_count;
             }
         }
 

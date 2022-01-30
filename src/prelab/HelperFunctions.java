@@ -8,14 +8,59 @@ import java.util.Scanner;
         // Function that gets a single digit input from the user
         static int getUserMenuSingleDigitInput(){
             Scanner my_scanner = new Scanner(System.in);
-            System.out.print("Select menu number: ");
+            System.out.print("\nSelect option number: ");
             Integer input = Integer.parseInt(String.valueOf(my_scanner.next().charAt(0)));
             System.out.println();
             return input;
         }
-        // Bubble sort for the sorting parts
-        static void bubbleSort(int[] arr) {
+
+        static boolean AskIfDoAgain() {
+            System.out.println("\nDo you want to continue the program? ");
+            System.out.println("1: Yes");
+            System.out.println("2: No");
+
+            return (getUserMenuSingleDigitInput() == 1);
+        }
+
+        static int getIntInput(){
+            Scanner my_scanner = new Scanner(System.in);
+            Integer input = Integer.parseInt(my_scanner.next());
+            return input;
+        }
+        // Bubble sort for the sorting parts and returns sorted index array
+        static int[] bubbleSort(int[] arr) {
             int n = arr.length;
+            int[] index_array = new int[arr.length];
+            for (int i=0; i<arr.length; i++){
+                index_array[i] = i;
+            }
+            int temp = 0;
+            for(int i=0; i < n; i++){
+                for(int j=1; j < (n-i); j++){
+                    if(arr[j-1] < arr[j]){
+                        //swap elements
+                        temp = arr[j-1];
+                        arr[j-1] = arr[j];
+
+                        arr[j] = temp;
+
+                        temp = index_array[j-1];
+                        index_array[j-1] = index_array[j];
+                        index_array[j] = temp;
+                    }
+                }
+            }
+
+            return index_array;
+        }
+
+        // Bubble sort for the sorting parts
+        static int[] bubbleSortAscending(int[] arr) {
+            int n = arr.length;
+            int[] index_array = new int[arr.length];
+            for (int i=0; i<arr.length; i++){
+                index_array[i] = i;
+            }
             int temp = 0;
             for(int i=0; i < n; i++){
                 for(int j=1; j < (n-i); j++){
@@ -23,10 +68,17 @@ import java.util.Scanner;
                         //swap elements
                         temp = arr[j-1];
                         arr[j-1] = arr[j];
+
                         arr[j] = temp;
+
+                        temp = index_array[j-1];
+                        index_array[j-1] = index_array[j];
+                        index_array[j] = temp;
                     }
                 }
             }
+
+            return index_array;
         }
         static void displayData(){
             String format = "|%20s|%35s|%20s|%35s|%20s|\n";
@@ -46,101 +98,138 @@ import java.util.Scanner;
         }
 
         //Test
-        static HashMap<String, Integer> adultPopulationData(){
-            HashMap<String, Integer> data = new HashMap<String, Integer>();
-            data.put("one", 287574);
-            data.put("oneToday", 185);
-            data.put("full", 267223);
-            data.put("fullToday", 286);
-            data.put("booster", 60122);
-            data.put("boosterToday", 1359);
-            data.put("total", 654989);
-            return data;
+        //Test
+        static void InitializeData(){
+            // A1
+            new VSE(PGC.A1, DTC.ONE_DOSE, 25826-10);
+            new VSE(PGC.A1, DTC.ONE_DOSE, 10, true);
+
+            new VSE(PGC.A1, DTC.FULLY_VACCINATED, 24698-10);
+            new VSE(PGC.A1, DTC.FULLY_VACCINATED, 10, true);
+
+            new VSE(PGC.A1, DTC.BOOSTER, 11155-110);
+            new VSE(PGC.A1, DTC.BOOSTER, 110, true);
+
+
+            //
+            // A2
+            new VSE(PGC.A2, DTC.ONE_DOSE, 32812-10);
+            new VSE(PGC.A2, DTC.ONE_DOSE, 10,true);
+
+            new VSE(PGC.A2, DTC.FULLY_VACCINATED, 31801-10);
+            new VSE(PGC.A2, DTC.FULLY_VACCINATED, 10, true);
+
+            new VSE(PGC.A2, DTC.BOOSTER, 14839-110);
+            new VSE(PGC.A2, DTC.BOOSTER, 108, true);
+
+
+            //
+            // A3
+            new VSE(PGC.A3, DTC.ONE_DOSE, 55572-16);
+            new VSE(PGC.A3, DTC.ONE_DOSE, 16,true);
+
+            new VSE(PGC.A3, DTC.FULLY_VACCINATED, 54260-17);
+            new VSE(PGC.A3, DTC.FULLY_VACCINATED, 17, true);
+
+            new VSE(PGC.A3, DTC.BOOSTER, 18747-410);
+            new VSE(PGC.A3, DTC.BOOSTER, 410, true);
+
+
+            //
+            // A4
+            new VSE(PGC.A4, DTC.ONE_DOSE, 122152-40);
+            new VSE(PGC.A4, DTC.ONE_DOSE, 40, true);
+
+            new VSE(PGC.A4, DTC.FULLY_VACCINATED, 113085-40);
+            new VSE(PGC.A4, DTC.FULLY_VACCINATED, 40, true);
+
+            new VSE(PGC.A4, DTC.BOOSTER, 12935-756);
+            new VSE(PGC.A4, DTC.BOOSTER, 756, true);
+
+
+            //
+            // A5
+            new VSE(PGC.A5, DTC.ONE_DOSE, 22536-11);
+            new VSE(PGC.A5, DTC.ONE_DOSE, 11, true);
+
+            new VSE(PGC.A5, DTC.FULLY_VACCINATED, 20558-10);
+            new VSE(PGC.A5, DTC.FULLY_VACCINATED, 10, true);
+
+            new VSE(PGC.A5, DTC.BOOSTER, 1520-80);
+            new VSE(PGC.A5, DTC.BOOSTER, 80, true);
+
+
+            //
+            // ROP
+            new VSE(PGC.ROP, DTC.ONE_DOSE, 28676-12);
+            new VSE(PGC.ROP, DTC.ONE_DOSE, 12, true);
+
+            new VSE(PGC.ROP, DTC.FULLY_VACCINATED, 22821-13);
+            new VSE(PGC.ROP, DTC.FULLY_VACCINATED, 13,true);
+
+            new VSE(PGC.ROP, DTC.BOOSTER, 926-240);
+            new VSE(PGC.ROP, DTC.BOOSTER, 240, true);
+
+
+            //
+            // P.A3
+            new VSE(PGC.PA3, DTC.ONE_DOSE, 4803);
+            new VSE(PGC.PA3, DTC.FULLY_VACCINATED, 3995);
+            new VSE(PGC.PA3, DTC.BOOSTER, 0);
+
+
+            //
+            // ROPP
+            new VSE(PGC.ROPP, DTC.ONE_DOSE, 28256);
+            new VSE(PGC.ROPP, DTC.FULLY_VACCINATED, 25727);
+            new VSE(PGC.ROPP, DTC.BOOSTER, 0);
         }
 
-        static HashMap<String, Integer> pediatricPopulationData(){
-            HashMap<String, Integer> data = new HashMap<String, Integer>();
-            data.put("one", 33059);
-            data.put("oneToday", 45);
-            data.put("full", 29722);
-            data.put("fullToday", 49);
-            data.put("booster", 60122);
-            data.put("totalToday", 102);
-            data.put("a3Pedia", 13);
-            data.put("ropp", 89);
-            return data;
+
+
+
+        static String PriorityGroupStringOnIndex(int i){
+            String priority_group;
+            switch(i){
+                case 0 -> priority_group="A1";
+                case 1 -> priority_group="A2";
+                case 2 -> priority_group="A3";
+                case 3 -> priority_group="A4";
+                case 4 -> priority_group="A5";
+                case 5 -> priority_group="ROP";
+                case 6 -> priority_group="P.A3";
+                case 7 -> priority_group="ROPP";
+                default -> throw new IllegalStateException("Unexpected value: " + i);
+            }
+
+            return priority_group;
         }
 
-        static HashMap<String, Integer> adultByPriorityData(){
-            HashMap<String, Integer> data = new HashMap<String, Integer>();
-            data.put("a1", 130);
-            data.put("a2", 130);
-            data.put("a3", 443);
-            data.put("a4", 836);
-            data.put("a5", 101);
-            data.put("roap", 265);
-            data.put("totalToday", 1905);
-            return data;
+        static void PrintDescendingPriorityGroupData(){
+            int[] priority_group_data = new int[]{
+                    VSE.GetVSOfPG(PGC.A1), VSE.GetVSOfPG(PGC.A2), VSE.GetVSOfPG(PGC.A3),
+                    VSE.GetVSOfPG(PGC.A4), VSE.GetVSOfPG(PGC.A5), VSE.GetVSOfPG(PGC.ROP),
+                    VSE.GetVSOfPG(PGC.PA3), VSE.GetVSOfPG(PGC.ROPP)};
+
+            int[] indexArr = bubbleSort(priority_group_data); // Sort the array and get the sequence of the sorted arr
+
+            for (int i = 0; i < indexArr.length; i++){
+                System.out.printf("%d. %s : %d\n",i+1,PriorityGroupStringOnIndex(indexArr[i]), priority_group_data[i]);
+            }
         }
 
-        static HashMap<String, HashMap<String, Integer>> populationByPriorityData(){
-            HashMap<String, HashMap<String, Integer>> data = new HashMap<String, HashMap<String, Integer>>();
-            HashMap<String, Integer> innerData = new HashMap<String, Integer>();
-            innerData.put("one", 25826);
-            innerData.put("full", 24296);
-            innerData.put("booster", 11155);
-            innerData.put("total", 60278);
-            data.put("a1", innerData);
+        static void PrintAscendingPriorityGroupData(){
+            int[] priority_group_data = new int[]{
+                    VSE.GetVSOfPG(PGC.A1), VSE.GetVSOfPG(PGC.A2), VSE.GetVSOfPG(PGC.A3),
+                    VSE.GetVSOfPG(PGC.A4), VSE.GetVSOfPG(PGC.A5), VSE.GetVSOfPG(PGC.ROP),
+                    VSE.GetVSOfPG(PGC.PA3), VSE.GetVSOfPG(PGC.ROPP)};
 
-            innerData.clear();
-            innerData.put("one", 32812);
-            innerData.put("full", 31801);
-            innerData.put("booster", 14839);
-            innerData.put("total", 73887);
-            data.put("a2", innerData);
+            int[] indexArr = bubbleSortAscending(priority_group_data); // Sort the array and get the sequence of the sorted arr
 
-            innerData.clear();
-            innerData.put("one", 55572);
-            innerData.put("full", 54260);
-            innerData.put("booster", 14839);
-            innerData.put("total", 73887);
-            data.put("a3", innerData);
-
-            innerData.clear();
-            innerData.put("one", 122152);
-            innerData.put("full", 113085);
-            innerData.put("booster", 12935);
-            innerData.put("total", 247760);
-            data.put("a4", innerData);
-
-            innerData.clear();
-            innerData.put("one", 22536);
-            innerData.put("full", 20558);
-            innerData.put("booster", 1520);
-            innerData.put("total", 43896);
-            data.put("a5", innerData);
-
-            innerData.clear();
-            innerData.put("one", 28676);
-            innerData.put("full", 22821);
-            innerData.put("booster", 926);
-            innerData.put("total", 51342);
-            data.put("rop", innerData);
-
-            innerData.clear();
-            innerData.put("one", 4803);
-            innerData.put("full", 3995);
-            innerData.put("booster", 11155);
-            innerData.put("total", 8798);
-            data.put("p.a3", innerData);
-
-            innerData.clear();
-            innerData.put("one", 28256);
-            innerData.put("full", 25727);
-            innerData.put("booster", 11155);
-            innerData.put("total", 53983);
-            data.put("ropp", innerData);
-
-            return data;
+            for (int i = 0; i < indexArr.length; i++){
+                System.out.printf("%d. %s : %d\n",i+1,PriorityGroupStringOnIndex(indexArr[i]), priority_group_data[i]);
+            }
         }
+
+
 }
