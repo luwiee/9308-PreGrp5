@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 // Store Each Individual's Vaccination Status in each
 public class VSE {
+    private static final ArrayList<VSE> categoryStatusList = new ArrayList<>();
     private final PGC priority_group;
     private final DTC dosage_type;
     private final int vaccine_count;
     private final boolean today;
-    private static final ArrayList<VSE> categoryStatusList = new ArrayList<>();
 
-    public VSE(PGC p_group, DTC d_type, int v_count, boolean today_v){
+    public VSE(PGC p_group, DTC d_type, int v_count, boolean today_v) {
         priority_group = p_group;
         dosage_type = d_type;
         vaccine_count = v_count;
@@ -20,7 +20,7 @@ public class VSE {
         categoryStatusList.add(this);
     }
 
-    public VSE(PGC p_group, DTC d_type, int v_count){
+    public VSE(PGC p_group, DTC d_type, int v_count) {
         priority_group = p_group;
         dosage_type = d_type;
         vaccine_count = v_count;
@@ -28,21 +28,10 @@ public class VSE {
         categoryStatusList.add(this);
     }
 
-    public PGC getPriority_group(){
-        return priority_group;
-    }
-    public DTC getDosage_type(){
-        return dosage_type;
-    }
-    public boolean getIsToday() { return today;}
-    public double getVaccine_count(){
-        return vaccine_count;
-    }
-
-    public static int GetTotalVaccinationStatus(){
+    public static int GetTotalVaccinationStatus() {
         int total_v_count = 0;
 
-        for (VSE categoryEntry : categoryStatusList){
+        for (VSE categoryEntry : categoryStatusList) {
             total_v_count += categoryEntry.getVaccine_count();
         }
 
@@ -50,13 +39,13 @@ public class VSE {
     }
 
     // Return total Vaccination status of the priority group
-    public static int GetVSOfPG(PGC priority_group_filter){
+    public static int GetVSOfPG(PGC priority_group_filter) {
         int total_v_count = 0;
 
         // Iterate through the category Status list and check if it is of the priority group if so
         // Add it to the total Vaccine count
-        for (VSE categoryEntry : categoryStatusList){
-            if (categoryEntry.getPriority_group().equals(priority_group_filter)){
+        for (VSE categoryEntry : categoryStatusList) {
+            if (categoryEntry.getPriority_group().equals(priority_group_filter)) {
                 total_v_count += categoryEntry.getVaccine_count();
             }
         }
@@ -65,14 +54,14 @@ public class VSE {
     }
 
     // Return vaccination count of VS of PG and Dt
-    public static int GetVSOfPGAndDT(PGC priority_group_filter, DTC dosage_filter){
+    public static int GetVSOfPGAndDT(PGC priority_group_filter, DTC dosage_filter) {
         int total_v_count = 0;
 
         // Iterate through the category Status list and check if it is of the priority group if so
         // Add it to the total Vaccine count
-        for (VSE categoryEntry : categoryStatusList){
-            if (categoryEntry.getPriority_group().equals(priority_group_filter)){
-                if (categoryEntry.getDosage_type().equals(dosage_filter)){
+        for (VSE categoryEntry : categoryStatusList) {
+            if (categoryEntry.getPriority_group().equals(priority_group_filter)) {
+                if (categoryEntry.getDosage_type().equals(dosage_filter)) {
                     total_v_count += categoryEntry.getVaccine_count();
                 }
             }
@@ -87,8 +76,8 @@ public class VSE {
 
         // Iterate through the category Status list and check if it is of the dosage type if so
         // Add it to the total Vaccine count
-        for (VSE categoryEntry : categoryStatusList){
-            if (categoryEntry.getDosage_type().equals(dosage_filter)){
+        for (VSE categoryEntry : categoryStatusList) {
+            if (categoryEntry.getDosage_type().equals(dosage_filter)) {
                 total_v_count += categoryEntry.getVaccine_count();
             }
         }
@@ -96,18 +85,34 @@ public class VSE {
         return total_v_count;
     }
 
-    public static int GetTotalDay(){
+    public static int GetTotalDay() {
         int total_v_count = 0;
 
         // Iterate through the category Status list and check if it is of the dosage type if so
         // Add it to the total Vaccine count
-        for (VSE categoryEntry : categoryStatusList){
-            if (categoryEntry.getIsToday()){
+        for (VSE categoryEntry : categoryStatusList) {
+            if (categoryEntry.getIsToday()) {
                 total_v_count += categoryEntry.vaccine_count;
             }
         }
 
         return total_v_count;
+    }
+
+    public PGC getPriority_group() {
+        return priority_group;
+    }
+
+    public DTC getDosage_type() {
+        return dosage_type;
+    }
+
+    public boolean getIsToday() {
+        return today;
+    }
+
+    public double getVaccine_count() {
+        return vaccine_count;
     }
 
 

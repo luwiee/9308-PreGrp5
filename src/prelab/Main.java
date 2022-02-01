@@ -13,7 +13,7 @@ public class Main {
         do {
             mainMenu();
 
-        } while(AskIfDoAgain());
+        } while (AskIfDoAgain());
     }
 
     static void Introduction() {
@@ -21,10 +21,9 @@ public class Main {
     }
 
 
-
     // MAIN-MENU
     // Main Menu Function - Prints the options and have a switch that gets input from the helper getInputFunction
-    static void mainMenu(){
+    static void mainMenu() {
         System.out.println("Main Menu");
         System.out.println("1: Show Vaccination Status");
         System.out.println("2: Show Vaccination Status per Priority Group");
@@ -45,19 +44,18 @@ public class Main {
     }
 
     // SHOW VACCINATION STATUS
-    static void showVaccinationStatus(){
+    static void showVaccinationStatus() {
         System.out.println("\t\t ~ Vaccination Status ~");
-        String[] label = { "With First Dose", "Fully Vaccinated", "With Booster", "Total Administered" };
-        int[] items = { VSE.GetVSOfDT(DTC.ONE_DOSE), VSE.GetVSOfDT(DTC.FULLY_VACCINATED), VSE.GetVSOfDT(DTC.BOOSTER), VSE.GetTotalVaccinationStatus() };
+        String[] label = {"With First Dose", "Fully Vaccinated", "With Booster", "Total Administered"};
+        int[] items = {VSE.GetVSOfDT(DTC.ONE_DOSE), VSE.GetVSOfDT(DTC.FULLY_VACCINATED), VSE.GetVSOfDT(DTC.BOOSTER), VSE.GetTotalVaccinationStatus()};
         for (int i = 0; i < label.length; i++) {
             System.out.printf("%22s: %10d%n", label[i], items[i]);
         }
     }
 
 
-
     // SHOW VACCINATION STATUS PER PRIORITY GROUP
-    static void showVaccinationStatusPriorityGroup(){
+    static void showVaccinationStatusPriorityGroup() {
         System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t~ Vaccination Status Per Priority Group ~");
 
         displayData();
@@ -65,7 +63,7 @@ public class Main {
     //
 
     // SHOW VACCINATION STATUS DOSE
-    static void showVaccinationStatusDose(){
+    static void showVaccinationStatusDose() {
         System.out.println("~ Vaccination Status Per Dose~");
         System.out.println("1: One Dose");
         System.out.println("2: Fully Vaccinated");
@@ -81,7 +79,7 @@ public class Main {
     }
 
     // UPDATE VACCINATION STATUS
-    static void updateVaccinationStatus(){
+    static void updateVaccinationStatus() {
         PGC priority_group_input;
         DTC dosage_classification_input = null;
         int vaccine_count_input;
@@ -113,7 +111,7 @@ public class Main {
         System.out.println("2: Fully Vaccinated");
         System.out.println("3: Booster");
 
-        switch (getUserMenuSingleDigitInput()){
+        switch (getUserMenuSingleDigitInput()) {
             case 1 -> dosage_classification_input = DTC.ONE_DOSE;
             case 2 -> dosage_classification_input = DTC.FULLY_VACCINATED;
             case 3 -> dosage_classification_input = DTC.BOOSTER;
@@ -125,8 +123,9 @@ public class Main {
         new VSE(priority_group_input, dosage_classification_input, vaccine_count_input, true);
 
     }
+
     // SORT AND DISPLAY OPTIONS
-    static void sortAndDisplayOptions(){
+    static void sortAndDisplayOptions() {
         System.out.println("~ Sort and Display Options ~");
 
         System.out.println("1: Priority group that has the most vaccines administered");
@@ -145,7 +144,6 @@ public class Main {
         }
 
     }
-
 
 
 }
